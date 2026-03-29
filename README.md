@@ -53,7 +53,7 @@ graph TD
 
 ## 如何开始
 
-请点开 [tasks(2026)](./tasks(2026)) 文件夹，从 [foundation](./tasks(2026)/foundation) 文件夹中的 [task1.md](./tasks(2026)/foundation/task1.md) 开始学习。
+请点开 [tasks(2026)](./tasks(2026)) 文件夹，从 [foundation](./tasks(2026)/foundation) 文件夹中的 [task0.md](./tasks(2026)/foundation/task0.md) 开始学习。
 
 我们希望学习方式是“文档引导 + 个人自学”。我们会告诉你应当如何快速上手，但你想要学好、学懂，除了我们的引导外，还需要主动进行个人提升。
 
