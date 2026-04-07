@@ -1,4 +1,4 @@
-﻿# Research 1 - 从机器学习到深度学习
+﻿﻿﻿# Research 1 - 从机器学习到深度学习
 
 > 预计耗时：90 天
 
@@ -204,6 +204,63 @@ Stanford CS231n: Convolutional Neural Networks for Visual Recognition
 
   这里直接给出这个视频的链接：[CS231N Google Colab Assignment Workflow Tutorial](https://www.youtube.com/watch?v=DsGd2e9JNH4&source_ve_path=MjM4NTE&embeds_referring_euri=https%3A%2F%2Fcs231n.github.io%2F)
 
+  **使用2025版的 CS231n 作业你可能会遇到的问题：**
+
+  使用 Colab 运行 ipynb 文件的这个示例代码块，这个类似代码块基本在所有 ipynb 文件里面都存在
+
+  ```python
+  # 常规初始化设置
+  from __future__ import print_function  # 确保兼容 Python 2 和 3 的打印函数
+  import time
+  import numpy as np
+  import matplotlib.pyplot as plt
+  from cs231n.classifiers.fc_net import *  # 全连接网络
+  from cs231n.data_utils import get_CIFAR10_data  # CIFAR-10 数据加载工具
+  from cs231n.gradient_check import eval_numerical_gradient, eval_numerical_gradient_array
+  from cs231n.solver import Solver  # 通用训练器
+  
+  # 让 matplotlib 图形直接嵌入在 notebook 中，而不是弹出新窗口
+  %matplotlib inline
+  # 统一设置图片默认大小，便于查看
+  plt.rcParams['figure.figsize'] = (10.0, 8.0)
+  # 关闭插值，使像素边界更清晰
+  plt.rcParams['image.interpolation'] = 'nearest'
+  # 灰度图默认使用灰度色图
+  plt.rcParams['image.cmap'] = 'gray'
+  
+  # 开启 IPython 的自动重载功能：修改外部 .py 文件后无需重启 kernel 即可生效
+  # 官方讨论贴地址：http://stackoverflow.com/questions/1907993/autoreload-of-modules-in-ipython
+  %load_ext autoreload
+  %autoreload 2
+  ```
+
+  如果你没有特地去修改过 Colab 的 Python 运行版本可能会出现如下报错
+
+  ```
+  ---------------------------------------------------------------------------
+  ModuleNotFoundError                       Traceback (most recent call last)
+  /tmp/ipykernel_18691/3437716399.py in <cell line: 0>()
+        4 import numpy as np
+        5 import matplotlib.pyplot as plt
+  ----> 6 from cs231n.classifiers.fc_net import *  # 全连接网络
+        7 from cs231n.data_utils import get_CIFAR10_data  # CIFAR-10 数据加载工具
+        8 from cs231n.gradient_check import eval_numerical_gradient, eval_numerical_gradient_array
+  
+  ModuleNotFoundError: No module named 'cs231n'
+  
+  ---------------------------------------------------------------------------
+  NOTE: If your import is failing due to a missing package, you can
+  manually install dependencies using either !pip or !apt.
+  
+  To view examples of installing some common dependencies, click the
+  "Open Examples" button below.
+  ---------------------------------------------------------------------------
+  ```
+
+  这个报错的问题出在代码第22行的 `%load_ext autoreload` 与第23行的 `%autoreload 2` 因为这两行代码所使用的模块在最新版 Colab 运行的 Python 版本中已经被弃用。至于这两行代码是做什么用的建议自行搜索
+
+  **解决方法：点击右下角的 `Python 3` 选项，选择 “更改运行时类型” 将 “运行时版本” 修改为 “2025.07”，然后等待几分钟再次运行即可**
+
 - 本地配置环境
 
   本地配置环境的推荐前提是有一台性能较好的电脑，最好有 NVIDIA 显卡（支持 CUDA）。
@@ -252,7 +309,7 @@ Stanford CS231n: Convolutional Neural Networks for Visual Recognition
   ```bash
   只能使用 wsl 时
   bcdedit /set hypervisorlaunchtype auto
-
+  
   使用 mumu 模拟器时
   bcdedit /set hypervisorlaunchtype off
   ```
